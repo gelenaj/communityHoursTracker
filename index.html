@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAUvN07HcoCifdZMsvA7IQeIFMyAq3xNgM",
+      authDomain: "communityhourstracker.firebaseapp.com",
+      databaseURL: "https://communityhourstracker.firebaseio.com",
+      projectId: "communityhourstracker",
+      storageBucket: "communityhourstracker.appspot.com",
+      messagingSenderId: "105394178382",
+      appId: "1:105394178382:web:50a367365fe7cd2644b61f"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+    <title>Firebase example</title>
+  </head>
+  <body style="margin:20px;">
+    <h1>Firebase example</h1>
+    <div class="col-sm-6">
+      <form >
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" id="user_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" name="user_email" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="user_password" id="user_password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+  
+    <button type="submit" class="btn btn-primary" value="save" onclick="save_user">Submit</button>
+  </form>
+</div>
+
+
+<script>
+  var users = document.getElementById('users');
+  var databaseRef = firebase.databaseRef().ref('users');
+
+
+  function save_user(){
+    var user_email = document.getElementById('user_email').value;
+    var user_password = document.getElementById('user_password').value;
+
+    var id = databaseRef.ref().child('users').push.key;
+    var data = {
+      user_id: id;
+      user_email: user_email;
+      user_password:user_password;
+    }
+
+  }
+
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAUvN07HcoCifdZMsvA7IQeIFMyAq3xNgM",
+    authDomain: "communityhourstracker.firebaseapp.com",
+    databaseURL: "https://communityhourstracker.firebaseio.com",
+    projectId: "communityhourstracker",
+    storageBucket: "communityhourstracker.appspot.com",
+    messagingSenderId: "105394178382",
+    appId: "1:105394178382:web:50a367365fe7cd2644b61f"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+  </body>
+</html>
