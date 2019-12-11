@@ -45,19 +45,18 @@
 
 <script>
   //var users = document.getElementById('users');
+  var database = firebase.database();
   var user_email = document.getElementById('user_email').value;
   var user_password = document.getElementById('user_password').value;
   var uid = firebase.database().ref().child('users').push().key;
 
-  function save_user(){
-    var id = databaseRef.ref().child('users').push.key;
-    var data = {
-      user_email: uid,
-      user_password:user_password
-    }
-    function reload_page(){
-   window.location.reload();
-  }
+  function save_user(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
 
   }
 
