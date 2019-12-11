@@ -61,7 +61,7 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
+var database = firebase.database();
   //var users = document.getElementById('users');
   var newUserKey = firebase.database().ref.child("users").push().key;
   var ref = database.ref('users');
@@ -86,7 +86,7 @@
 
      var updates = {};
      updates['/users/' + newUserKey] = userData;
-     
+
      alert('The user is created successfully!');
      reload_page();
 
