@@ -52,12 +52,23 @@
   //var uid = firebase.database().ref().child('users').push().key;
 
   function save_user(){
-  rootRef.set({
-    email: user_email,
-    password: user_password
-  });
-  ref.push(data);
-}
+     var user_name = document.getElementById('user_email').value;
+
+     var uid = firebase.database().ref().child('users').push().key;
+
+     var data = {
+      user_id: uid,
+      user: user_email,
+      password:user_password
+     }
+
+     var updates = {};
+     updates['/users/' + uid] = data;
+     firebase.database().ref().update(updates);
+
+     alert('The user is created successfully!');
+     reload_page();
+    }
 
 </script>
 
