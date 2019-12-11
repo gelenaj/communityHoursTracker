@@ -42,14 +42,14 @@
       <input type="password" name="user_password" id="user_password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
 
-    <button type="submit" class="btn btn-primary" value="save" onclick="save_user();">Submit</button>
+    <button type="submit" class="btn btn-primary" value="Save" onclick="save_user();">Submit</button>
   </form>
 </div>
 
 
 <script>
-  var users = document.getElementById('users');
-  var databaseRef = firebase.databaseRef().ref('users');
+  //var users = document.getElementById('users');
+  var databaseRef = firebase.databaseRef().ref('users/');
 
 
   function save_user(){
@@ -58,9 +58,9 @@
 
     var id = databaseRef.ref().child('users').push.key;
     var data = {
-      user_id: id;
-      user_email: user_email;
-      user_password:user_password;
+      user_id: id,
+      user_email: user_email,
+      user_password:user_password
     }
 
   }
