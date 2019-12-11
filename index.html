@@ -52,8 +52,9 @@
 
   function save_user(userId, name, email) {
   firebase.database().ref('users/' + userId).set({
-    email: userpassword,
-    name: user_email
+    name: user_email,
+    email: user_password,
+    profile_picture : imageUrl
   });
 }
 
