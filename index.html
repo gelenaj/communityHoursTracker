@@ -63,13 +63,13 @@
   firebase.initializeApp(firebaseConfig);
 
   //var users = document.getElementById('users');
-  var rootRef = firebase.database().ref.child("users");
+  var newUserKey = firebase.database().ref.child("users").push().key;
   var ref = database.ref('users');
 
 
   //var uid = firebase.database().ref().child('users').push().key;
 
-  function save_user(){
+  function save_user(user, email){
     // var user_email = document.getElementById('user_email').value;
     // var user_password = document.getElementById('user_password').value;
     //  var uid = firebase.database().ref().child('users').push().key;
@@ -78,16 +78,21 @@
     //   uid: uid,
     //   user: user_email,
     //   password:user_password
-    user: "gloria",
-    email: "test@gmail.com"
+    var userData={
+      user: "gloria",
+      email: "test@gmail.com"
      }
+     var newUserKey = firebase.database().ref().child('posts').push().key;
 
      var updates = {};
-     updates['/users/' + uid] = data;
-     firebase.database().ref().update(updates);
-
+     updates['/users/' + newUserKey] = userData;
+     
      alert('The user is created successfully!');
      reload_page();
+
+     return firebase.database().ref().update(userData);
+
+
     }
 
     function update_user(){
