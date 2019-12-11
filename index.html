@@ -50,19 +50,17 @@
 
   var user_email = document.getElementById('user_email').value;
   var user_password = document.getElementById('user_password').value;
-  var uid = firebase.database().ref().child('users').push().key;
+  //var uid = firebase.database().ref().child('users').push().key;
 
-  function save_user(userId, name, email) {
-  firebase.database().ref('users/' + userId).set({
-    userId: uid,
+  function save_user(){
+  var data ={
     name: user_email,
     email: user_password,
-  });
-
+  }
   ref.push(data);
 }
 
-  }
+</script>
 
   </body>
 </html>
