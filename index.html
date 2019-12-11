@@ -47,13 +47,12 @@
   var rootRef = firebase.database().ref.child("users");
   var ref = database.ref('users');
 
-  var user_email = document.getElementById('user_email').value;
-  var user_password = document.getElementById('user_password').value;
+
   //var uid = firebase.database().ref().child('users').push().key;
 
   function save_user(){
-     var user_name = document.getElementById('user_email').value;
-
+    var user_email = document.getElementById('user_email').value;
+    var user_password = document.getElementById('user_password').value;
      var uid = firebase.database().ref().child('users').push().key;
 
      var data = {
@@ -71,8 +70,9 @@
     }
 
     function update_user(){
-   var user= document.getElementById('user_name').value;
-   var uid = document.getElementById('user_id').value;
+      var user_email = document.getElementById('user_email').value;
+      var user_password = document.getElementById('user_password').value;
+       var uid = firebase.database().ref().child('users').push().key;
 
    var data = {
     uid: user_id,
