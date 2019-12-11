@@ -28,7 +28,26 @@
     <button type="submit" class="btn btn-primary" value="Save" onclick="save_user();">Submit</button>
   </form>
 </div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBTBh4GPj9IDD8TdW3mngEqt7gnJBwCIRY",
+    authDomain: "communityhours-479ae.firebaseapp.com",
+    databaseURL: "https://communityhours-479ae.firebaseio.com",
+    projectId: "communityhours-479ae",
+    storageBucket: "communityhours-479ae.appspot.com",
+    messagingSenderId: "803388373138",
+    appId: "1:803388373138:web:0663900be0ce94d3550e4b"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
