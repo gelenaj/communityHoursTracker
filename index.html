@@ -50,11 +50,10 @@
   var user_password = document.getElementById('user_password').value;
   var uid = firebase.database().ref().child('users').push().key;
 
-  function save_user(userId, name, email, imageUrl) {
+  function save_user(userId, name, email) {
   firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email,
-    profile_picture : imageUrl
+    email: userpassword,
+    name: user_email
   });
 }
 
