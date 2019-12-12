@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
@@ -12,15 +13,128 @@
     <title>Firebase example</title>
     <script>
     var firebaseConfig = {
-      apiKey: "AIzaSyAUvN07HcoCifdZMsvA7IQeIFMyAq3xNgM",
-      authDomain: "communityhourstracker.firebaseapp.com",
-      databaseURL: "https://communityhourstracker.firebaseio.com",
-      projectId: "communityhourstracker",
-      storageBucket: "communityhourstracker.appspot.com",
-      messagingSenderId: "105394178382",
-      appId: "1:105394178382:web:50a367365fe7cd2644b61f"
-    };
+        apiKey: "AIzaSyBTBh4GPj9IDD8TdW3mngEqt7gnJBwCIRY",
+        authDomain: "communityhours-479ae.firebaseapp.com",
+        databaseURL: "https://communityhours-479ae.firebaseio.com",
+        projectId: "communityhours-479ae",
+        storageBucket: "communityhours-479ae.appspot.com",
+        messagingSenderId: "803388373138",
+        appId: "1:803388373138:web:0663900be0ce94d3550e4b"
+      };
       firebase.initializeApp(firebaseConfig);
+
+      <html>
+        <head>
+          <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+
+          <title>Firebase example</title>
+
+        </head>
+        <body style="margin:20px;">
+          <h1>Firebase example</h1>
+          <div class="col-sm-6">
+            <form id="user-form" action="#">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" id="user_email" name="user_email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="user_password" id="user_password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+
+          <button type="submit" class="btn btn-primary" value="Save" onclick="save_user();">Submit</button>
+        </form>
+      </div>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+      <script>
+        var userForm = document.getElementById('userForm');
+        var user = document.getElementById('user_email');
+        var password = document.getElementById('user_password');
+
+        function save_user(uid, username, password) {
+        // A post entry.
+        var postData = {
+          uid: uid,
+          user: username,
+          password: userPassword
+        };
+
+        // Get a key for a new Post.
+        var newPostKey = firebase.database().ref().child('users').push().key;
+
+      </script>
+
+      <script>
+        // Your web app's Firebase configuration
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      var database = firebase.database();
+        //var users = document.getElementById('users');
+        var newUserKey = firebase.database().ref.child("users").push().key;
+        var ref = database.ref('users');
+
+
+        //var uid = firebase.database().ref().child('users').push().key;
+
+        function save_user(user, email){
+          // var user_email = document.getElementById('user_email').value;
+          // var user_password = document.getElementById('user_password').value;
+          //  var uid = firebase.database().ref().child('users').push().key;
+          //
+          //  var data = {
+          //   uid: uid,
+          //   user: user_email,
+          //   password:user_password
+          var userData={
+            user: "gloria",
+            email: "test@gmail.com"
+           }
+           var newUserKey = firebase.database().ref().child('users').push().key;
+
+           var updates = {};
+           updates['/users/' + newUserKey] = userData;
+
+           alert('The user is created successfully!');
+           reload_page();
+
+           return firebase.database().ref().update(userData);
+
+
+          }
+
+          function update_user(){
+
+             //var uid = firebase.database().ref().child('users').push().key;
+
+         var data = {
+
+          user: document.getElementById('user_email').value;,
+          password: document.getElementById('user_password').value;
+         }
+
+
+         alert('The user is updated successfully!');
+
+         reload_page();
+        }
+
+      </script>
+
+
+        </body>
+      </html>
+
     </script>
   </head>
   <body style="margin:20px;">
@@ -73,31 +187,7 @@ var database = firebase.database();
 
   //var uid = firebase.database().ref().child('users').push().key;
 
-  function save_user(user, email){
-    // var user_email = document.getElementById('user_email').value;
-    // var user_password = document.getElementById('user_password').value;
-    //  var uid = firebase.database().ref().child('users').push().key;
-    //
-    //  var data = {
-    //   uid: uid,
-    //   user: user_email,
-    //   password:user_password
-    var userData={
-      user: "gloria",
-      email: "test@gmail.com"
-     }
-     var newUserKey = firebase.database().ref().child('users').push().key;
 
-     var updates = {};
-     updates['/users/' + newUserKey] = userData;
-
-     alert('The user is created successfully!');
-     reload_page();
-
-     return firebase.database().ref().update(userData);
-
-
-    }
 
     function update_user(){
       var user_email = document.getElementById('user_email').value;
