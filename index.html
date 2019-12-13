@@ -8,12 +8,27 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase.js"></script>
 
 
   <title>Firebase example</title>
   </head>
   <body style="margin:20px;">
+    <script>
 
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBTBh4GPj9IDD8TdW3mngEqt7gnJBwCIRY",
+      authDomain: "communityhours-479ae.firebaseapp.com",
+      databaseURL: "https://communityhours-479ae.firebaseio.com",
+      projectId: "communityhours-479ae",
+      storageBucket: "communityhours-479ae.appspot.com",
+      messagingSenderId: "803388373138",
+      appId: "1:803388373138:web:0663900be0ce94d3550e4b"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
 
 
 
@@ -32,32 +47,19 @@
           <button type="submit" class="btn btn-primary" value="Save" onclick="save_user()">Submit</button>
         </form>
       </div>
-      <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
 
-      <!-- TODO: Add SDKs for Firebase products that you want to use
-           https://firebase.google.com/docs/web/setup#available-libraries -->
+
 
       <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-          apiKey: "AIzaSyBTBh4GPj9IDD8TdW3mngEqt7gnJBwCIRY",
-          authDomain: "communityhours-479ae.firebaseapp.com",
-          databaseURL: "https://communityhours-479ae.firebaseio.com",
-          projectId: "communityhours-479ae",
-          storageBucket: "communityhours-479ae.appspot.com",
-          messagingSenderId: "803388373138",
-          appId: "1:803388373138:web:0663900be0ce94d3550e4b"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-      </script>
-      <script>
+
       function save_user(){
-        firebase.database().ref("User").set({
+        firebase.database().ref('users/').push({
           user: document.getElementById('user_email').value,
-          password: document.getElementById('user_password').value,
+          password: document.getElementById('user_password').value
+      
         });
-      }
+}
+
       </script>
 
 
