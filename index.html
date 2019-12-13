@@ -10,7 +10,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
-
   <title>Firebase example</title>
   </head>
   <body style="margin:20px;">
@@ -34,33 +33,26 @@
         </form>
       </div>
       <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-database.js"></script>
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-auth.js"></script>
+      <script>
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBTBh4GPj9IDD8TdW3mngEqt7gnJBwCIRY",
-    authDomain: "communityhours-479ae.firebaseapp.com",
-    databaseURL: "https://communityhours-479ae.firebaseio.com",
-    projectId: "communityhours-479ae",
-    storageBucket: "communityhours-479ae.appspot.com",
-    messagingSenderId: "803388373138",
-    appId: "1:803388373138:web:0663900be0ce94d3550e4b"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-<script>
-function save_user(){
-  firebase.database().ref("User").set({
-    user: document.getElementById('user_email').value,
-    password: document.getElementById('user_password').value,
-  });
-}
-</script>
+      var firebaseConfig = {
+          apiKey: "AIzaSyBTBh4GPj9IDD8TdW3mngEqt7gnJBwCIRY",
+          authDomain: "communityhours-479ae.firebaseapp.com",
+          databaseURL: "https://communityhours-479ae.firebaseio.com",
+          projectId: "communityhours-479ae",
+          storageBucket: "communityhours-479ae.appspot.com",
+          messagingSenderId: "803388373138",
+          appId: "1:803388373138:web:0663900be0ce94d3550e4b"
+        };
+        firebase.initializeApp(firebaseConfig);
 
+
+        </script>
   </body>
 </html>
