@@ -14,21 +14,7 @@
   <title>Firebase example</title>
   </head>
   <body style="margin:20px;">
-    <script>
 
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyBTBh4GPj9IDD8TdW3mngEqt7gnJBwCIRY",
-      authDomain: "communityhours-479ae.firebaseapp.com",
-      databaseURL: "https://communityhours-479ae.firebaseio.com",
-      projectId: "communityhours-479ae",
-      storageBucket: "communityhours-479ae.appspot.com",
-      messagingSenderId: "803388373138",
-      appId: "1:803388373138:web:0663900be0ce94d3550e4b"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
 
 
 
@@ -48,19 +34,22 @@
         </form>
       </div>
 
-
-
       <script>
 
-      function save_user(){
-        firebase.database().ref('users/').push({
-          user: document.getElementById('user_email').value,
-          password: document.getElementById('user_password').value
-      
-        });
-}
-
-      </script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBTBh4GPj9IDD8TdW3mngEqt7gnJBwCIRY",
+        authDomain: "communityhours-479ae.firebaseapp.com",
+        databaseURL: "https://communityhours-479ae.firebaseio.com",
+        projectId: "communityhours-479ae",
+        storageBucket: "communityhours-479ae.appspot.com",
+        messagingSenderId: "803388373138",
+        appId: "1:803388373138:web:0663900be0ce94d3550e4b"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+<script src="index.js"></script>
 
 
       <!-- The core Firebase JS SDK is always required and must be listed first -->
